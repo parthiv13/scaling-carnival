@@ -1,0 +1,24 @@
+{
+  "name": "formatter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthiv13/scaling-carnival.git"
+  },
+  "author": "parthiv13",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthiv13/scaling-carnival/issues"
+  },
+  "homepage": "https://github.com/parthiv13/scaling-carnival#readme",
+  "dependencies": {
+    "docxtemplater": "^3.9.4",
+    "jszip": "^2.6.1",
+    "jszip-utils": "0.0.2"
+  }
+}
