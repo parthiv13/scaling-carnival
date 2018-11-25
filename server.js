@@ -3,12 +3,16 @@ const JSZip = require('jszip'),
     fs = require('fs'),
     path = require('path');
 
-var content = fs.readFileSync(path.resolve(__dirname, 'input2.docx'), 'binary');
+var content2 = fs.readFileSync(path.resolve(__dirname, 'input2.docx'), 'binary');
+var content = fs.readFileSync(path.resolve(__dirname, 'Document.docx'), 'binary');
 
 var zip = new JSZip(content);
+var zip2 = new JSZip(content2);
 
 var doc = new Docxtemplater();
 doc.loadZip(zip);
+var doc2 = new Docxtemplater();
+doc2.loadZip(zip2);
 
 const csv = require('csvtojson');
 var obj = {
@@ -25,9 +29,11 @@ csv()
         }
         console.log(obj);
         doc.setData(obj);
+        doc2.setData(obj);
 
         try {
-            doc.render()
+            doc.render();
+            //doc2.render();
         }
         catch (error) {
             var e = {
@@ -41,8 +47,10 @@ csv()
             throw error;
         }
         var buf = doc.getZip().generate({ type: 'nodebuffer' });
+        var buf2 = doc2.getZip().generate({ type: 'nodebuffer' });
 
-        fs.writeFileSync(path.resolve(__dirname, 'output.docx'), buf);
+        fs.writeFileSync(path.resolve(__dirname, 'Global ' + obj.XXX + " Industry Research Report, Opportunities & Forecast, 2017-2025"), buf);
+        fs.writeFileSync(path.resolve(__dirname, 'Document.rtf'), buf);
     });
 
 var randomJson = {
