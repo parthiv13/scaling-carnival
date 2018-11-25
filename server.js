@@ -33,7 +33,7 @@ csv()
 
         try {
             doc.render();
-            //doc2.render();
+            doc2.render();
         }
         catch (error) {
             var e = {
@@ -49,7 +49,7 @@ csv()
         var buf = doc.getZip().generate({ type: 'nodebuffer' });
         var buf2 = doc2.getZip().generate({ type: 'nodebuffer' });
 
-        fs.writeFileSync(path.resolve(__dirname, 'Global ' + obj.XXX + " Industry Research Report, Opportunities & Forecast, 2017-2025"), buf);
+        fs.writeFileSync(path.resolve(__dirname, 'Global ' + obj.XXX + " Industry Research Report, Opportunities & Forecast, 2017-2025.docx"), buf2);
         fs.writeFileSync(path.resolve(__dirname, 'Document.rtf'), buf);
     });
 
