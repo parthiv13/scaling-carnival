@@ -2,9 +2,10 @@ const JSZip = require('jszip'),
     Docxtemplater = require('docxtemplater'),
     fs = require('fs'),
     path = require('path');
+const mv = require('mv');
 
 var content2 = fs.readFileSync(path.resolve(__dirname, 'input2.docx'), 'binary');
-var content = fs.readFileSync(path.resolve(__dirname, 'Document.docx'), 'binary');
+var content = fs.readFileSync(path.resolve(__dirname, 'input3.docx'), 'binary');
 
 var zip = new JSZip(content);
 var zip2 = new JSZip(content2);
@@ -49,8 +50,12 @@ csv()
         var buf = doc.getZip().generate({ type: 'nodebuffer' });
         var buf2 = doc2.getZip().generate({ type: 'nodebuffer' });
 
-        fs.writeFileSync(path.resolve(__dirname, 'Global ' + obj.XXX + " Industry Research Report, Opportunities & Forecast, 2017-2025.docx"), buf2);
-        fs.writeFileSync(path.resolve(__dirname, 'Document.rtf'), buf);
+        fs.mkdirSync(path.resolve(__dirname, obj.XXX + ' Market'));
+        fs.writeFileSync(path.resolve(path.resolve(__dirname, obj.XXX + ' Market'), 'Global ' + obj.XXX + " Market Industry Research Report, Opportunities & Forecast, 2018-2025.docx"), buf2);
+        fs.writeFileSync(path.resolve(path.resolve(__dirname, obj.XXX + ' Market'), 'Document.rtf'), buf);
+        mv('./Codes.csv', path.resolve(__dirname, obj.XXX + ' Market') + '/Codes.csv', function (err) {
+            console.log('Done');
+        })
     });
 
 var randomJson = {
