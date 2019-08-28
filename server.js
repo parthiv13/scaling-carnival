@@ -53,7 +53,7 @@ csv()
         fs.mkdirSync(path.resolve(__dirname, obj.XXX + ' Market'));
         fs.writeFileSync(path.resolve(path.resolve(__dirname, obj.XXX + ' Market'), 'Global ' + obj.XXX + " Market Industry Research Report, Opportunities & Forecast, 2018-2025.docx"), buf2);
         fs.writeFileSync(path.resolve(path.resolve(__dirname, obj.XXX + ' Market'), 'Document.rtf'), buf);
-        fs.createReadStream('Codes.csv').pipe(fs.createWriteStream(path.resolve(__dirname, obj.XXX + ' Market/' + 'Codes.csv')));
+        fs.createReadStream('Codes.csv').pipe(fs.createWriteStream(path.resolve(__dirname, obj.XXX + ' Market/Global ' + obj.XXX + ' Codes.csv')));
     });
 
 var randomJson = {
