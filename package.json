@@ -19,7 +19,7 @@
   "dependencies": {
     "csvtojson": "^2.0.8",
     "docxtemplater": "^3.9.4",
-    "jszip": "^2.6.1",
+    "jszip": "^3.8.0",
     "jszip-utils": "0.0.2",
     "mv": "^2.1.1"
   }
